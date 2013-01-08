@@ -40,18 +40,18 @@
 - (IBAction)enterPressed {
     if ([self.display.text doubleValue] != 0) {
         [self.brain pushOperand:[self.display.text doubleValue]];
+        if ([self.historyDisplay.text rangeOfString:@"= "].location != NSNotFound) {
+            self.historyDisplay.text = [self.historyDisplay.text substringToIndex:[self.historyDisplay.text length] - 2];
+        }
         self.historyDisplay.text = [self.historyDisplay.text stringByAppendingFormat:@"%@", [self.display.text stringByAppendingFormat:@" "]];
+        self.display.text = 0;
         self.userIsInTheMiddleOfEnteringANumber = NO;
     }
 }
 
-- (IBAction)piPressed:(UIButton *)sender {
-    
-}
-
 - (IBAction)changeSignPressed:(UIButton *)sender {
     if(self.userIsInTheMiddleOfEnteringANumber){
-        self.display.text = [NSString stringWithFormat:@"%.f", [self.display.text doubleValue] * -1];
+        self.display.text = [NSString stringWithFormat:@"%g", [self.display.text doubleValue] * -1];
     }
 }
 
@@ -63,7 +63,7 @@
     double result = [self.brain performOperation:operation];
     self.historyDisplay.text = [self.historyDisplay.text stringByAppendingFormat:@"%@", [[sender currentTitle] stringByAppendingFormat:@" "]];
     self.historyDisplay.text = [self.historyDisplay.text stringByAppendingFormat:@"= "];
-    self.display.text = [NSString stringWithFormat:@"%.f", result];
+    self.display.text = [NSString stringWithFormat:@"%g", result];
 }
 
 - (IBAction)clearPressed:(UIButton *)sender {

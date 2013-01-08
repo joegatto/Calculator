@@ -65,6 +65,8 @@
             result = cos([self popOperandOffStack:stack] * M_PI / 180);
         } else if([operation isEqualToString:@"sqrt"]){
             result = sqrt([self popOperandOffStack:stack]);
+        } else if([operation isEqualToString:@"π"]){
+            result = M_PI;
         }
     }
     
