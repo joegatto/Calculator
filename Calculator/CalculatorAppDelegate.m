@@ -3,7 +3,7 @@
 //  Calculator
 //
 //  Created by João Carlos Lopes Gatto on 6/7/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Gatto IT. All rights reserved.
 //
 
 #import "CalculatorAppDelegate.h"
