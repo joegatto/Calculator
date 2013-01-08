@@ -22,6 +22,10 @@
     return _programStack;
 }
 
+- (id)program {
+    return [self.programStack copy];
+}
+
 - (void)pushOperand:(double)operand {
     [self.programStack addObject:[NSNumber numberWithDouble:operand]];
 }
@@ -31,8 +35,22 @@
     return [CalculatorBrain runProgram:self.program];
 }
 
-/*
++ (NSString *) descriptionOfProgram:(id)program {
+    return @"Implement this in assignment 2";
+}
+
++ (double)popOperandOffStack:(NSMutableArray *)stack {
     double result = 0;
+    
+    return result;
+}
+
++ (double)runProgram:(id)program {
+    return [self popOperandOffStack:[program mutableCopy]];
+}
+
+/*
+    
     
     if([operation isEqualToString:@"+"]){
         result = [self popOperand] + [self popOperand];
@@ -54,7 +72,7 @@
     
     [self pushOperand:result];
     
-    return result;
+    
 }
  */
 
