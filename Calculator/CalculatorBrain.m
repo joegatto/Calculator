@@ -98,13 +98,15 @@
 
 + (NSString *)descriptionOfTopOfStack:(NSMutableArray *)stack {
 
+    NSString *result;
+    
     id topOfStack = [stack lastObject];
     if (topOfStack) [stack removeLastObject];
     
     if([topOfStack isKindOfClass:[NSNumber class]]){
         return topOfStack;
     } else if ([topOfStack isKindOfClass:[NSString class]]) {
-        NSString *operation = topOfStack;
+        /*NSString *operation = topOfStack;
         if([operation isEqualToString:@"+"]){
             result = [self popOperandOffStack:stack] "+" [self popOperandOffStack:stack];
         } else if([operation isEqualToString:@"*"]){
@@ -129,7 +131,7 @@
             }
         } else if ([@"+/-" isEqualToString:operation]) {
             result = (-1) * [self popOperandOffStack:stack];
-        }
+        }*/
     }
     
     return result;
