@@ -15,8 +15,12 @@
 - (void)clearsEverything;
 
 @property (readonly) id program;
+@property (readonly) id variables;
 
 + (double)runProgram:(id)program;
++ (double)runProgram:(id)program usingVariablesValues:(NSDictionary *)variableValues;
 + (NSString *)descriptionOfProgram:(id)program;
++ (NSSet *)variablesUsedInProgram:(id)program;
++ (BOOL) isOperation:(NSString *)operation;
 
 @end

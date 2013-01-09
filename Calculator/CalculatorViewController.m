@@ -52,6 +52,8 @@
 - (IBAction)changeSignPressed:(UIButton *)sender {
     if(self.userIsInTheMiddleOfEnteringANumber){
         self.display.text = [NSString stringWithFormat:@"%g", [self.display.text doubleValue] * -1];
+    } else {
+        [self operationPressed:sender];
     }
 }
 
