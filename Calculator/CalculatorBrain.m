@@ -136,11 +136,10 @@
             } else if ([operation isEqualToString:@"cos"]) {
                 result = cos ([operand1 doubleValue] * M_PI / 180);
             } else if ([operation isEqualToString:@"sqrt"]) {
-                if(![operand1 doubleValue] < 0) {
-                    result = sqrt([operand1 doubleValue]);
-                } else {
+                if([operand1 doubleValue] <= 0) {
                     return NEGATIVE_SQUARE_ROOT;
                 }
+                result = sqrt([operand1 doubleValue]);
             } else if ([operation isEqualToString:@"+/-"]) {
                 result = [operand1 doubleValue] * -1;
             } else if ([operation isEqualToString:@"x²"]) {
