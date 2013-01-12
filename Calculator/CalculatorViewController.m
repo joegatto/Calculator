@@ -20,14 +20,15 @@
 @synthesize descriptionDisplay = _descriptionDisplay;
 @synthesize userIsInTheMiddleOfEnteringANumber;
 @synthesize brain = _brain;
-
 @synthesize testVariableValues = _testVariableValues;
 
+// Getter for the brain, it uses lazy instantiation to return a valid brain object
 - (CalculatorBrain *)brain {
     if(!_brain) _brain = [[CalculatorBrain alloc] init];
     return _brain;
 }
 
+// Getter for the testVariableValues, it uses lazy instantiation to return a valid NSDictionay object
 - (NSDictionary *)testVariableValues {
     if (!_testVariableValues) {
 		_testVariableValues = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -38,36 +39,30 @@
 	return _testVariableValues;
 }
 
-- (NSDictionary *)programVariableValues {
-    
-	// Find the variables in the current program in the brain as an array
-	NSArray *variableArray =
-	[[CalculatorBrain variablesUsedInProgram:self.brain.program] allObjects];
-    
-	// Return a description of a dictionary which contains keys and values for the keys
-	// that are in the variable array
-	return [self.testVariableValues dictionaryWithValuesForKeys:variableArray];
-}
-
+// This method is responsible for synchronize the view with the latest calculation in the brain, find the result by
+// running the program passing in the test variable values, if the result is a string, then display it, otherwise
+// get the Number's description, updates the calculation label, from the latest description of program and the user
+// isn't in the middle of entering a number
 - (void)synchronizeView {
-    
-	// Find the result by running the program passing in the test variable values
 	id result = [CalculatorBrain runProgram:self.brain.program usingVariablesValues:self.testVariableValues];
     
-	// If the result is a string, then display it, otherwise get the Number's description
 	if ([result isKindOfClass:[NSString class]]) {
         self.display.text = result;
         self.descriptionDisplay.text = @"ERROR";
     } else {
         self.display.text = [NSString stringWithFormat:@"%g", [result doubleValue]];
-        // Now the calculation label, from the latest description of program
+
         self.descriptionDisplay.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
     }
     
-	// And the user isn't in the middle of entering a number
 	self.userIsInTheMiddleOfEnteringANumber = NO;
 }
 
+// This action handles user hitting the digits button, it checks if the digit pressed is a "." AND
+// if a "." was not already included, if there is already a "."in the display it returns nothing.
+// If user is in the middle of entering a number, it appends the current title to current text on the display.
+// If is not in the middle of entering a number, it sets the variable userIsInTheMiddleOfEnteringANumber to YES
+// and at last, set the current tittle of the button to display.
 - (IBAction)digitPressed:(UIButton *)sender {
     if ([sender.currentTitle isEqualToString:@"."] && [self.display.text rangeOfString:@"."].location != NSNotFound) {
         return;
@@ -75,6 +70,7 @@
     if (self.userIsInTheMiddleOfEnteringANumber) {
         self.display.text = [self.display.text stringByAppendingFormat:@"%@", sender.currentTitle];
     } else {
+        
         self.userIsInTheMiddleOfEnteringANumber = YES;
         if ([sender.currentTitle isEqualToString:@"."]) {
             self.display.text = @"0.";
@@ -84,6 +80,7 @@
     }
 }
 
+// This action handles user hitting the enter button
 - (IBAction)enterPressed {
     if ([self.display.text doubleValue] != 0) {
         [self.brain pushOperand:[self.display.text doubleValue]];

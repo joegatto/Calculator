@@ -100,13 +100,14 @@
     else return expression;
 }
 
+// Validates if the NSArray is valid
 + (BOOL)isValidProgram:(id)program {
-    // It's valid if it's an NSArray
     return [program isKindOfClass:[NSArray class]];
 }
 
 + (id)popOperandOffStack:(NSMutableArray *) stack {
     
+    // Error messages
     NSString *INSUFFICIENT_OPERANDS = @"Insufficient operands!";
     NSString *INVALID_OPERATION = @"Operation not implemented!";
     NSString *NEGATIVE_SQUARE_ROOT = @"Negative square root!";
