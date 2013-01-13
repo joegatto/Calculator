@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD71DCF8160A9850000BAFA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD71DCF7160A9850000BAFA9 /* Default-568h@2x.png */; };
 		FD9B90E01582C2E8006E5612 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B90DF1582C2E8006E5612 /* CalculatorBrain.m */; };
 		FDEEFA9815815A700099800A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEFA9715815A700099800A /* UIKit.framework */; };
 		FDEEFA9A15815A700099800A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEFA9915815A700099800A /* Foundation.framework */; };
@@ -22,6 +21,7 @@
 		FDEEFAB815815A700099800A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEEFA9915815A700099800A /* Foundation.framework */; };
 		FDEEFAC015815A700099800A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDEEFABE15815A700099800A /* InfoPlist.strings */; };
 		FDEEFAC315815A700099800A /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEEFAC215815A700099800A /* CalculatorTests.m */; };
+		FDFA006916A3319400CB755F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFA006816A3319400CB755F /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD71DCF7160A9850000BAFA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FD9B90DE1582C2E8006E5612 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		FD9B90DF1582C2E8006E5612 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 		FDEEFA9315815A700099800A /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +56,7 @@
 		FDEEFABF15815A700099800A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDEEFAC115815A700099800A /* CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTests.h; sourceTree = "<group>"; };
 		FDEEFAC215815A700099800A /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
+		FDFA006816A3319400CB755F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		FDEEFA8815815A6F0099800A = {
 			isa = PBXGroup;
 			children = (
-				FD71DCF7160A9850000BAFA9 /* Default-568h@2x.png */,
+				FDFA006816A3319400CB755F /* Default-568h@2x.png */,
 				FDEEFA9D15815A700099800A /* Calculator */,
 				FDEEFABB15815A700099800A /* CalculatorTests */,
 				FDEEFA9615815A700099800A /* Frameworks */,
@@ -233,7 +233,7 @@
 			files = (
 				FDEEFAA215815A700099800A /* InfoPlist.strings in Resources */,
 				FDEEFAAB15815A700099800A /* MainStoryboard.storyboard in Resources */,
-				FD71DCF8160A9850000BAFA9 /* Default-568h@2x.png in Resources */,
+				FDFA006916A3319400CB755F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
